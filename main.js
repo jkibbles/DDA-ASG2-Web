@@ -96,9 +96,9 @@ function getPlayerDataB(e) {
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
     console.log("User key: " + childSnapshot.key);
     console.log("Username: " + childSnapshot.child("username").val());
-    content += `<tr>
-    <td>${childSnapshot.child("active").val()}</td>
-    </tr>`;
+    content += `username: <tr>
+    <td>${childSnapshot.child("username").val()}</td>
+    </tr><br>`;
     });
     //update our table content
     playerContent.innerHTML = content;
@@ -112,3 +112,20 @@ function getPlayerDataB(e) {
     });
     } //end getPlayerData
 
+
+    var currentTimestamp = new Date().getTime();
+    var playerData = {
+    active: true,
+    createdOn: currentTimestamp,
+    displayName: "testPlayer",
+    email: "someemail@email.com",
+    lastLoggedIn: currentTimestamp,
+    updatedOn: currentTimestamp,
+    userName: "some user name",
+    };
+    set(ref(db, `players/${uuid}`), playerData);
+    
+onValue(playerRef, (snapshot) => {
+  //const data = snapshot.val();
+  updatePlayerContent(snapshot);
+  });
