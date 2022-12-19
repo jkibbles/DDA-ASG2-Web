@@ -95,9 +95,9 @@ function getPlayerDataB(e) {
     //looping through each snapshot
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
     console.log("User key: " + childSnapshot.key);
-    console.log("Username: " + childSnapshot.child("username").val());
+    console.log("Username: " + childSnapshot.child("userName").val());
     content += `username: <tr>
-    <td>${childSnapshot.child("username").val()}</td>
+    <td>${childSnapshot.child("userName").val()}</td>
     </tr><br>`;
     });
     //update our table content
