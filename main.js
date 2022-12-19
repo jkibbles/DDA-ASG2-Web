@@ -24,6 +24,18 @@ console.log(`Sign-ing up user with ${email} and password ${password}`);
 signUpUserWithEmailAndPassword(email, password);
 });
 
+let btnSignIn = document.getElementById("btn-signin"); //signin btn
+btnSignIn.addEventListener("click", function (e) {
+e.preventDefault();
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+//let email = $("#email").val();
+//let password = $("#password").val();
+console.log(`Sign-ing in user with ${email} and password ${password}`);
+//[STEP 4: Signup our user]
+signInUserWithEmailAndPassword(email, password);
+});
+
 
 function getPlayerData() {
   //const playerRef = ref(db, "players");
@@ -70,6 +82,23 @@ function signUpUserWithEmailAndPassword(email, password) {
       //signedin
       const user = userCredential.user;
       console.log("created user ... " + JSON.stringify(userCredential));
+      console.log("User is now signed in ");
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(`ErrorCode: ${errorCode} -> Message: ${errorMessage}`);
+    });
+}
+
+//user will get signed in
+//userCredential is an object that gets
+function signInUserWithEmailAndPassword(email,password) {
+  console.log("Signing in the user");
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      //signedin
+      const user = userCredential.user;
+      console.log("signed in user ... " + JSON.stringify(userCredential));
       console.log("User is now signed in ");
     }).catch((error) => {
       const errorCode = error.code;
