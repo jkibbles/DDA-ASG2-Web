@@ -12,7 +12,7 @@ const LeaderboardRef = ref(db,"leaderboards")
 getLeaderboardData();
 
 let readBtn = document.getElementById("btn-read");
-readBtn.addEventListener("click", getPlayerDataB);
+//readBtn.addEventListener("click", getPlayerDataB);
 
 //Update Leaderboard button
 let updateLeaderboardBtn = document.getElementById("btn-leaderboard");
