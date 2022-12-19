@@ -123,7 +123,7 @@ function getPlayerDataB(e) {
     updatedOn: currentTimestamp,
     userName: "some user name",
     };
-    set(ref(db, `players/${uuid}`), playerData);
+    //set(ref(db, `players/${uuid}`), playerData);
     
 onValue(playerRef, (snapshot) => {
   //const data = snapshot.val();
