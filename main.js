@@ -7,10 +7,25 @@ import { getDatabase, ref, get, child, set, onValue, orderByChild} from "https:/
 // Initialize Firebase
 const db = getDatabase();
 const playerRef = ref(db,"players");
-getPlayerData();
+const LeaderboardRef = ref(db,"leaderboards")
+//getPlayerData();
+getLeaderboardData();
 
 let readBtn = document.getElementById("btn-read");
 readBtn.addEventListener("click", getPlayerDataB);
+
+//Update Leaderboard button
+let updateLeaderboardBtn = document.getElementById("btn-leaderboard");
+//updateLeaderboardBtn.addEventListener("click", console.log(`Updating`));
+updateLeaderboardBtn.addEventListener("click", updateLeaderboardData);
+/*
+updateLeaderboardBtn.addEventListener("click", function (e) {
+e.preventDefault();
+console.log(`Updating`);
+//function to update leaderboard
+updateLeaderboardData;
+});
+*/
 
 let btnSignup = document.getElementById("btn-signup"); //signup btn
 btnSignup.addEventListener("click", function (e) {
@@ -35,6 +50,28 @@ console.log(`Sign-ing in user with ${email} and password ${password}`);
 //[STEP 4: Signup our user]
 signInUserWithEmailAndPassword(email, password);
 });
+
+
+function getLeaderboardData() {
+  //const LeaderboardRef = ref(db, "leaderboards");
+  //LeaderboardRef is declared at the top using a constant
+  //get(child(db,`leaderboards/`))
+  get(LeaderboardRef)
+    .then((snapshot) => {//retrieve a snapshot of the data using a callback
+      if (snapshot.exists()) {//if the data exist
+        try {
+          //let's do something about it
+          var content = "";
+          snapshot.forEach((childSnapshot) => {//looping through each snapshot
+            //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Aray / forEach
+            console.log("GetPlayerData: childkey " + childSnapshot.key);
+          });
+        } catch (error) {
+          console.log("Error getPlayerData" + error);
+        }
+      }
+    });
+}//end getLeaderboardData
 
 
 function getPlayerData() {
@@ -158,3 +195,39 @@ onValue(playerRef, (snapshot) => {
   //const data = snapshot.val();
   updatePlayerContent(snapshot);
   });
+
+
+//Setup our leaderboard function to display info
+function updateLeaderboardData(e) {
+  e.preventDefault();
+  //LeaderboardRef is declared at the top using a constant
+  //const LeaderboardRef = ref(db, "leaderboards");
+  //get(child(db,`leaderboardRs/`))
+  get(LeaderboardRef).then((snapshot) => { //retrieve a snapshot of the data using a callback
+  if (snapshot.exists()) {
+  //if the data exist
+  try {
+  //let's do something about it
+  var leaderboardContent = document.getElementById("leaderboard-content");
+  var content = "";
+  snapshot.forEach((childSnapshot) => {
+  //looping through each snapshot
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+  console.log("User key: " + childSnapshot.key);
+  console.log("Username: " + childSnapshot.child("userName").val());
+  content += `username: <tr>
+  <td>${childSnapshot.child("userName").val()}</td>
+  </tr><br>`;
+  });
+  //update our table content
+  leaderboardContent.innerHTML = content;
+  } catch (error) {
+  console.log("Error updateLeaderboardData" + error);
+  }
+  }else{
+  //@TODO what if no data ?
+  console.log("No data");
+  }
+  });
+  } //end updateLeaderboardData
+
