@@ -1,88 +1,152 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>BabyTerryHome</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <link rel ="stylesheet" href="style.css">
-</head>
-<header style="background-color: rgb(127, 214, 255);"class="header_section">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/home.css " />
+  </head>
+  <header style="background-color: rgb(127, 214, 255)" class="header_section">
     <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg custom_nav-container ">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
         <a class="navbar-brand" href="home.html">
-          <span style="color: rgb(255, 69, 184);font-weight: bold;font-size:x-large;">
+          <span
+            style="
+              color: rgb(255, 69, 184);
+              font-weight: bold;
+              font-size: x-large;
+            "
+          >
             Baby Terry
           </span>
         </a>
-  
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul style="background-color: rgb(127, 214, 255);border: 0ch;text-size-adjust: 100;"class="navbar-nav  ">
-            <li class="nav-item ">
-              <a style="color: aliceblue;font-weight: bold;"class="nav-link" href="home.html">About </a>
+          <ul
+            style="
+              background-color: rgb(127, 214, 255);
+              border: 0ch;
+              text-size-adjust: 100;
+            "
+            class="navbar-nav"
+          >
+            <li class="nav-item">
+              <a
+                style="color: aliceblue; font-weight: bold"
+                class="nav-link"
+                href="home.html"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a style="color: aliceblue;font-weight: bold;"class="nav-link" href="leaderboard.html"> Leaderboard</a>
+              <a
+                style="color: aliceblue; font-weight: bold"
+                class="nav-link"
+                href="about.html"
+                >About
+              </a>
             </li>
             <li class="nav-item">
-              <a style="color: aliceblue;font-weight: bold;"class="nav-link" href="shop.html">Profile</a>
+              <a
+                style="color: aliceblue; font-weight: bold"
+                class="nav-link"
+                href="leaderboard.html"
+              >
+                Leaderboard</a
+              >
             </li>
-              <button style="font-weight: bold;color: rgb(44, 44, 44);"class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                Log Out
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
+            <li class="nav-item">
+              <a
+                style="color: aliceblue; font-weight: bold"
+                class="nav-link"
+                href="profile.html"
+                >Profile</a
+              >
+            </li>
+            <button
+              style="font-weight: bold; color: rgb(44, 44, 44)"
+              class="btn"
+              id="btn-signout"
+            >
+              Log Out
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
           </ul>
         </div>
       </nav>
     </div>
   </header>
-<body>
-    <main>    
-        <h1>Leaderboard:</h1>
+  <body>
+    <main style="margin-left: auto;margin-right: auto;margin-top: 20px;"role="main" class="col-md-9 col-lg-10 px-4">
+        <h3>Leaderboard</h3>
         <hr>
-        <table class="table">
+        <div class="table-responsive">
+          <table class="table table-dark">
             <thead>
-            <tr>
-                <th scope="col">Rank</th>
-                <th scope="col">Username</th>
-                <th scope="col">Fastest time</th>
-                <th scope="col">Last updated on</th>
-            </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Position</th>
+              </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
+              <tr>
+                <th scope="row">1</th>
                 <td>Mark</td>
                 <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <td>2</td>
+                <td>Project Manager</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
                 <td>Jacob</td>
                 <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <td>3</td>
+                <td>JS developer</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
                 <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+                <td>Bird</td>
+                <td>Back-end developer</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>Martin</td>
+                <td>Smith</td>
+                <td>Back-end developer</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Kate</td>
+                <td>Mayers</td>
+                <td>Scrum master</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Kate</td>
+                <td>Mayers</td>
+                <td>Scrum master</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Kate</td>
+                <td>Mayers</td>
+                <td>Scrum master</td>
+              </tr>
             </tbody>
-        </table>
-        <form>
-            <button class="btn btn-primary" id="btn-leaderboard">Update Leaderboard</button>
-        </form>
+          </table>
+        </div>
+      <form>
+        <button class="btn btn-primary" id="btn-leaderboard">
+          Update Leaderboard
+        </button>
+      </form>
     </main>
-  <div id="leaderboard-content"></div>
+    <div id="leaderboard-content"></div>
 
-  <script type="module" src="config.js"></script>
-  <script type="module" src="main.js"></script>
-  <script src="jquery.js"></script>
-</body>
+    <script type="module" src="config.js"></script>
+    <script type="module" src="main.js"></script>
+    <script src="jquery.js"></script>
+  </body>
 </html>

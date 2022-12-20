@@ -53,6 +53,14 @@ console.log(`Sign-ing in user with ${email} and password ${password}`);
 signInUserWithEmailAndPassword(email, password);
 });}
 
+let btnSignout= document.getElementById("btn-signout");
+if(btnSignout){
+  btnSignout.addEventListener('click', e => {
+    e.preventDefault();
+    auth.signOut();
+    location.href = 'index.html';
+    console.log('User signed out!');
+  })}
 
 function getLeaderboardData() {
   //const LeaderboardRef = ref(db, "leaderboards");
