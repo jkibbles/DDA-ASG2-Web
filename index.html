@@ -43,15 +43,15 @@
                   <h3 class="mb-0">Login</h3>
                 </div>
                 <div class="card-body">
-                  <form id="formLogin" method="POST" class="formLogin">
+                  <form id="frmCreateUser" class="formLogin">
                     <div class="form-group">
                       <input
                         for="email"
                         class="form-control"
                         id="email"
-                        name="name"
+                        name="email"
                         placeholder="Email"
-                        type="text"
+                        type="email"
                         required=""
                       />
                       <i class="fa fa-user"></i>
@@ -62,7 +62,7 @@
                         type="password"
                         class="form-control"
                         placeholder="Password"
-                        id="pwd"
+                        id="passord"
                         required=""
                       />
                       <i class="fa fa-lock"></i>
@@ -71,7 +71,6 @@
                     <div class="row mb-3">
                       <div class="col-lg-12 text-right">
                         <button
-						href="home.html"
                           type="submit"
                           class="btn btn-success hover-btn btn-wd"
                           id="btn-signin"
@@ -106,7 +105,8 @@
       <!--/row-->
     </div>
     <!--/container-->
-
+    <script type="module" src="config.js"></script>
+	<script type="module" src="main.js"></script>
     <!-- jquery latest version -->
     <script src="js/jquery.min.js"></script>
     <!-- popper.min.js -->
@@ -115,9 +115,6 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- Jquery Rippler js -->
     <script src="js/jquery.rippler.min.js"></script>
-    <!-- script js -->
-    <script src="js/script.js"></script>
-    <script src="main.js"></script>
-    <script src="config.js"></script>
+    
   </body>
 </html>

@@ -8,8 +8,8 @@ import { getDatabase, ref, get, child, set, onValue, orderByChild} from "https:/
 const db = getDatabase();
 const playerRef = ref(db,"players");
 const LeaderboardRef = ref(db,"leaderboards")
-//getPlayerData();
-getLeaderboardData();
+getPlayerData();
+//getLeaderboardData();
 
 let readBtn = document.getElementById("btn-read");
 //readBtn.addEventListener("click", getPlayerDataB);
