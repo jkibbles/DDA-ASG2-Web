@@ -5,14 +5,25 @@ import { getDatabase, ref, get, child, set, onValue, orderByChild} from "https:/
 
 
 // Initialize Firebase
+//Working with Auth
+const auth = getAuth();
 const db = getDatabase();
 const playerRef = ref(db,"players");
 const LeaderboardRef = ref(db,"leaderboards")
 //getPlayerData();
 //getLeaderboardData();
-
+auth.onAuthStateChanged(user => {
+  if (user) {
+    const uid = user.uid;
+    console.log(user.email + " is logged in!");
+    console.log(user.uid);
+  } else {
+    console.log('User is logged out!');
+  }
+});
 let readBtn = document.getElementById("btn-read");
-//readBtn.addEventListener("click", getPlayerDataB);
+if(readBtn){
+  readBtn.addEventListener("click", getPlayerDataProfile);}
 
 //Update Leaderboard button
 let updateLeaderboardBtn = document.getElementById("btn-leaderboard");
@@ -105,18 +116,17 @@ function getPlayerData() {
     });
 }//end getPlayerData
 
-//Working with Auth
-const auth = getAuth();
 //retrieve element from form
 var frmCreateUser = document.getElementById("frmCreateUser");
 //we create a button listener to listen when someone clicks
+if(frmCreateUser){
 frmCreateUser.addEventListener("submit", function(e) {
   e.preventDefault();
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
   //createUser(email, password);
   console.log("email" + email + "password" + password);
-});
+});}
 
 
 //create a new user based on email n password into Auth service
@@ -157,8 +167,9 @@ function signInUserWithEmailAndPassword(email,password) {
 }
 
 //[STEP 4] Setup our player function to display info
-function getPlayerDataB(e) {
+function getPlayerDataProfile(e) {
     e.preventDefault();
+
     //playerRef is declared at the top using a constant
     //const playerRef = ref(db, "players");
     //get(child(db,`players/`))
@@ -176,7 +187,7 @@ function getPlayerDataB(e) {
     console.log("Username: " + childSnapshot.child("userName").val());
     content += `username: <tr>
     <td>${childSnapshot.child("userName").val()}</td>
-    </tr><br>`;
+    </tr><br>${childSnapshot.child("userName").val()}`;
     });
     //update our table content
     playerContent.innerHTML = content;
@@ -203,10 +214,7 @@ function getPlayerDataB(e) {
     };
     //set(ref(db, `players/${uuid}`), playerData);
     
-onValue(playerRef, (snapshot) => {
-  //const data = snapshot.val();
-  updatePlayerContent(snapshot);
-  });
+
 
 
 //Setup our leaderboard function to display info
