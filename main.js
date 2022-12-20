@@ -8,7 +8,7 @@ import { getDatabase, ref, get, child, set, onValue, orderByChild} from "https:/
 const db = getDatabase();
 const playerRef = ref(db,"players");
 const LeaderboardRef = ref(db,"leaderboards")
-getPlayerData();
+//getPlayerData();
 //getLeaderboardData();
 
 let readBtn = document.getElementById("btn-read");
@@ -17,7 +17,7 @@ let readBtn = document.getElementById("btn-read");
 //Update Leaderboard button
 let updateLeaderboardBtn = document.getElementById("btn-leaderboard");
 //updateLeaderboardBtn.addEventListener("click", console.log(`Updating`));
-updateLeaderboardBtn.addEventListener("click", updateLeaderboardData);
+//updateLeaderboardBtn.addEventListener("click", updateLeaderboardData);
 /*
 updateLeaderboardBtn.addEventListener("click", function (e) {
 e.preventDefault();
@@ -28,6 +28,7 @@ updateLeaderboardData;
 */
 
 let btnSignup = document.getElementById("btn-signup"); //signup btn
+if(btnSignup){
 btnSignup.addEventListener("click", function (e) {
 e.preventDefault();
 let email = document.getElementById("email").value;
@@ -37,9 +38,10 @@ let password = document.getElementById("password").value;
 console.log(`Sign-ing up user with ${email} and password ${password}`);
 //[STEP 4: Signup our user]
 signUpUserWithEmailAndPassword(email, password);
-});
+});}
 
 let btnSignIn = document.getElementById("btn-signin"); //signin btn
+if(btnSignIn){
 btnSignIn.addEventListener("click", function (e) {
 e.preventDefault();
 let email = document.getElementById("email").value;
@@ -49,7 +51,7 @@ let password = document.getElementById("password").value;
 console.log(`Sign-ing in user with ${email} and password ${password}`);
 //[STEP 4: Signup our user]
 signInUserWithEmailAndPassword(email, password);
-});
+});}
 
 
 function getLeaderboardData() {
@@ -118,6 +120,7 @@ function signUpUserWithEmailAndPassword(email, password) {
     .then((userCredential) => {
       //signedin
       const user = userCredential.user;
+      location.href = 'home.html';
       console.log("created user ... " + JSON.stringify(userCredential));
       console.log("User is now signed in ");
     }).catch((error) => {
@@ -135,6 +138,7 @@ function signInUserWithEmailAndPassword(email,password) {
     .then((userCredential) => {
       //signedin
       const user = userCredential.user;
+      location.href = 'home.html';
       console.log("signed in user ... " + JSON.stringify(userCredential));
       console.log("User is now signed in ");
     }).catch((error) => {
