@@ -69,26 +69,35 @@
       </nav>
     </div>
   </header>
-  <body>
+  <body
+    style="background-color: rgb(37, 186, 255); min-height: 100vh"
+    class="d-flex flex-column"
+  >
     <main
-      style="margin-left: auto; margin-right: auto; margin-top: 20px"
+      style="margin-left: auto; margin-right: auto; margin-top: 20px;"
       role="main"
       class="col-md-9 col-lg-10 px-4"
     >
-      <h3>Leaderboard</h3>
-      <hr />
+      <h3 style="color:aliceblue ;font-weight: bolder;">Leaderboard</h3>
+      <hr style="background-color: rgb(255, 255, 255);"/>
       <div class="table-responsive container mt-3">
-        <table class="table table-dark">
+        <table class="table table-light">
           <thead>
-              <th scope="col">Ranking</th>
-              <th scope="col">Username</th>
-              <th scope="col">Time</th>
-            </thead>
-            <tbody id="tbody1"></tbody>
-          </table>
+            <th scope="col">Ranking</th>
+            <th scope="col">Username</th>
+            <th scope="col">Time</th>
+          </thead>
+          <tbody id="tbody1"></tbody>
+        </table>
       </div>
     </main>
-
+    <div style="background-color: aliceblue; margin-top: auto">
+      <footer class="py-3 my-4">
+        <div class="col-md-4 d-flex align-items-center">
+          <span class="mb-3 mb-md-0 text-muted">© 2022 NoMoreNiceGuy</span>
+        </div>
+      </footer>
+    </div>
     <script type="module" src="config.js"></script>
     <script type="module" src="main.js"></script>
     <script src="jquery.js"></script>

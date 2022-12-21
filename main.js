@@ -1,5 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import { getDatabase, ref, get, child, set, onValue, orderByChild, orderByValue} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+import { getDatabase,query, ref, get, child, set, onValue, orderByChild, orderByValue} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -141,8 +141,8 @@ function AddLeaderboardData(player){
 }
 
 function GetLeaderboardData(){
-  const dbref =ref(db);
-  get(child(dbref,"leaderboards")).then((snapshot)=>{
+  const dbref =query(ref(db,"leaderboards"),orderByChild("fastestMin"));
+  get(dbref).then((snapshot)=>{
     var players=[];
     snapshot.forEach(childSnapshot=>{
       players.push(childSnapshot.val());
